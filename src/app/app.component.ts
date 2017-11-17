@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AppService } from './app.service';
+import { PostData } from './models/post-data.model';
+import { PostService } from './shared/post.service';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +9,17 @@ import { AppService } from './app.service';
 })
 export class AppComponent {
   title = 'Displaying all posts!!!';
-  noOfRowsToDisplay = 50;
 
-  public data: any[];
+  public data: Array<PostData>;
+  public filterQuery = "";
+  public rowsOnPage = 10;
+  public sortBy = "title";
+  public sortOrder = "asc";
 
-  constructor(private appService: AppService) {
-    appService.getUserDetails().subscribe( result => {
+  public rowsOnPageList = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
+
+  constructor(private postService: PostService) {
+    postService.getAllPosts().subscribe( (result: Array<PostData>) => {
       this.data = result;
     });
   }

@@ -1,11 +1,11 @@
-import { browser, element, by } from 'protractor';
+import {browser, by, element} from 'protractor';
 
-export class Angular4CliPage {
-  navigateTo() {
-    return browser.get('/');
-  }
+export class E2EPage {
+    navigateTo() {
+        return browser.get('/');
+    }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
-  }
+    getParagraphText() {
+        return element(by.css('app-root h1')).getText();
+    }
 }

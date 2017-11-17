@@ -6,19 +6,23 @@ import { HttpModule } from '@angular/http';
 import { DataTableModule } from 'angular2-datatable';
 
 import { AppComponent } from './app.component';
-import { AppService } from './app.service';
+import { PostService } from './shared/post.service';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     DataTableModule
   ],
-  providers: [AppService],
-  bootstrap: [AppComponent]
+  declarations: [
+    AppComponent
+  ],
+  providers: [
+    PostService
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

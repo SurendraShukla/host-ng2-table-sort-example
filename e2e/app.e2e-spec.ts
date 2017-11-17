@@ -1,14 +1,14 @@
-import { Angular4CliPage } from './app.po';
+import { E2EPage } from './app.po';
 
-describe('angular4-cli App', function() {
-  let page: Angular4CliPage;
+describe('e2e testing', function () {
+    let page: E2EPage;
 
-  beforeEach(() => {
-    page = new Angular4CliPage();
-  });
+    beforeEach(() => {
+        page = new E2EPage();
+    });
 
-  it('should display message saying app works', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
-  });
+    it('should display message saying "Displaying all posts!!!"', () => {
+        page.navigateTo();
+        expect(page.getParagraphText()).toEqual('Displaying all posts!!!');
+    });
 });
