@@ -52,17 +52,17 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   }));
 
-  it(`should have as title 'Displaying all posts!!!'`, async(() => {
+  it(`should have as title 'Displaying posts!'`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Displaying all posts!!!');
+    expect(app.title).toEqual('Displaying posts!');
   }));
 
   it('should render title in a h1 tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Displaying all posts!!!');
+    expect(compiled.querySelector('h1').textContent).toContain('Displaying posts!');
   }));
 
   it('List of post should be equal to total posts', function() {

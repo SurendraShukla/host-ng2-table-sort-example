@@ -1,15 +1,17 @@
-<h1>
-  {{title}}
-</h1>
-<div>
-  <span>
+
+<div class="container">
+  <div class="col-xs-12">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="col-xs-12">
+    <span class="col-xs-2">
       <label class="label-control">Rows on page</label>
       <select class="form-control input-sm" [(ngModel)]="rowsOnPage">
         <option *ngFor="let rows of rowsOnPageList">{{rows}}</option>
       </select>
       &nbsp;
   </span>
-  <span>
+  <span class="col-xs-2">
       <label class="col-xs-12 label-control">Sort by</label>
       <select class="form-control input-sm" [(ngModel)]="sortBy">
           <option ngValue="id">Id</option>
@@ -19,7 +21,8 @@
       </select>
       &nbsp;
   </span>
-  <span>
+  <span class="col-xs-2">
+    <label class="col-xs-12 label-control">&nbsp;</label>
       <select class="form-control input-sm" [(ngModel)]="sortOrder">
           <option ngValue="asc">Ascending</option>
           <option ngValue="desc">Descending</option>
@@ -27,65 +30,42 @@
       </select>
       &nbsp;
   </span>
-  <hr />
 </div>
-<table class="table table-striped" #mf="mfDataTable"
-      [mfData]="data"
-      [mfRowsOnPage]="rowsOnPage"
-      [(mfSortBy)]="sortBy"
-      [(mfSortOrder)]="sortOrder"
-      [mfRowsOnPage]="noOfRowsToDisplay">
-  <thead>
-  <tr>
-    <th style="width: 2%">
-      <mfDefaultSorter by="id">Id</mfDefaultSorter>
-    </th>
-    <th style="width: 5%">
-      <mfDefaultSorter by="userId">User Id</mfDefaultSorter>
-    </th>
-    <th style="width: 23%">
-      <mfDefaultSorter by="title">Title</mfDefaultSorter>
-    </th>
-    <th style="width: 70%">
-      <mfDefaultSorter by="body">Body</mfDefaultSorter>
-    </th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let item of mf.data">
-    <td>{{item.userId}}</td>
-    <td>{{item.id}}</td>
-    <td>{{item.title}}</td>
-    <td>{{item.body}}</td>
-  </tr>
-  </tbody>
-</table>
-
-<div>
-  <hr />
-  <span>
-      <label class="label-control">Rows on page</label>
-      <select class="form-control input-sm" [(ngModel)]="rowsOnPage">
-        <option *ngFor="let rows of rowsOnPageList">{{rows}}</option>
-      </select>
-      &nbsp;
-  </span>
-  <span>
-      <label class="col-xs-12 label-control">Sort by</label>
-      <select class="form-control input-sm" [(ngModel)]="sortBy">
-          <option ngValue="id">Id</option>
-          <option ngValue="userId">User Id</option>
-          <option ngValue="title">Title</option>
-          <option [ngValue]="body">Body</option>
-      </select>
-      &nbsp;
-  </span>
-  <span>
-      <select class="form-control input-sm" [(ngModel)]="sortOrder">
-          <option ngValue="asc">Ascending</option>
-          <option ngValue="desc">Descending</option>
-          <option ngValue="badValue">Bad value</option>
-      </select>
-      &nbsp;
-  </span>
+<div class="col-xs-12">
+    <div class="panel panel-default">
+      <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
+        <thead>
+          <tr>
+            <th style="width: 10%">
+              <mfDefaultSorter by="id">Id</mfDefaultSorter>
+            </th>
+            <th style="width: 10%">
+              <mfDefaultSorter by="userId">User Id</mfDefaultSorter>
+            </th>
+            <th style="width: 30%">
+              <mfDefaultSorter by="title">Title</mfDefaultSorter>
+            </th>
+            <th style="width: 50%">
+              <mfDefaultSorter by="body">Body</mfDefaultSorter>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of mf.data">
+            <td>{{item.id}}</td>
+            <td>{{item.userId}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.body}}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">
+              <mfBootstrapPaginator [rowsOnPageSet]="rowsOnPageList"></mfBootstrapPaginator>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
 </div>

@@ -7,8 +7,8 @@ describe('e2e testing', function () {
         page = new E2EPage();
     });
 
-    it('should display message saying "Displaying all posts!!!"', () => {
+    it('should display message saying "Displaying posts!"', () => {
         page.navigateTo();
-        expect(page.getParagraphText()).toEqual('Displaying all posts!!!');
+        expect(page.getParagraphText()).toEqual('Displaying posts!');
     });
 });

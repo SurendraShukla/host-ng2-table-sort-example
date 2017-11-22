@@ -8,11 +8,11 @@ import { PostService } from './shared/post.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Displaying all posts!!!';
+  title = 'Displaying posts!';
 
   public data: Array<PostData>;
   public filterQuery = "";
-  public rowsOnPage = 10;
+  public rowsOnPage = 5;
   public sortBy = "title";
   public sortOrder = "asc";
 
